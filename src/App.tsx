@@ -24,7 +24,9 @@ function getUsers(userId: number) {
 }
 
 function getNewTodoId(): number {
-  const lastTodo = Math.max(...todosFromServer.map(todo => todo.id));
+  const lastTodo = todosFromServer.length
+    ? Math.max(...todosFromServer.map(todo => todo.id))
+    : 1;
 
   return lastTodo + 1;
 }
